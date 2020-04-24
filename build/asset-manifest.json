@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.db7a550e.chunk.css",
+    "main.css": "/static/css/main.34755d1d.chunk.css",
     "main.js": "/static/js/main.2b4ca4f5.chunk.js",
     "main.js.map": "/static/js/main.2b4ca4f5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8de0129c.js",
@@ -8,16 +8,16 @@
     "static/js/2.3d3b74b1.chunk.js": "/static/js/2.3d3b74b1.chunk.js",
     "static/js/2.3d3b74b1.chunk.js.map": "/static/js/2.3d3b74b1.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e9e2074c906c2848d621713466c53b79.js": "/precache-manifest.e9e2074c906c2848d621713466c53b79.js",
+    "precache-manifest.6fbd7adc01a1049e18413142b6a73085.js": "/precache-manifest.6fbd7adc01a1049e18413142b6a73085.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.db7a550e.chunk.css.map": "/static/css/main.db7a550e.chunk.css.map",
+    "static/css/main.34755d1d.chunk.css.map": "/static/css/main.34755d1d.chunk.css.map",
     "static/js/2.3d3b74b1.chunk.js.LICENSE.txt": "/static/js/2.3d3b74b1.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/Stolzl Display.2e6fafa0.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.8de0129c.js",
     "static/js/2.3d3b74b1.chunk.js",
-    "static/css/main.db7a550e.chunk.css",
+    "static/css/main.34755d1d.chunk.css",
     "static/js/main.2b4ca4f5.chunk.js"
   ]
 }
