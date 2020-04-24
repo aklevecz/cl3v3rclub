@@ -9,7 +9,7 @@ const Header = styled.div`
   display: flex;
   border: 2px solid black;
   padding: 10px;
-  margin: 20px auto;
+  margin: 20px auto 7px;
 `;
 
 const Info = styled.div`
@@ -18,7 +18,7 @@ const Info = styled.div`
   width: 90%;
   max-width: 500px;
   position: relative;
-  background-color: rgba(175, 75, 250, 0.4);
+  background-color: ${(props) => props.color};
   :before {
     content: "";
     position: absolute;
@@ -28,7 +28,7 @@ const Info = styled.div`
     height: 100%;
     opacity: 0.7;
     z-index: -1;
-    background: url("https://i.pinimg.com/originals/64/a8/be/64a8be98eddab6cef644bdd4c8115e36.png");
+    background: ${(props) => `url(${props.img})`};
   }
   .text {
     color: white;
@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     const source = "https://ice.raptor.pizza/hls/daftpunk.m3u8";
     const video = document.querySelector("#video");
-    const player = new Plyr(video);
+    new Plyr(video);
 
     if (!Hls.isSupported()) {
       video.src = source;
@@ -64,7 +64,10 @@ function App() {
         <Header>CLUB CL3V3R</Header>
       </div>
       <div>
-        <Info>
+        <Info
+          color="rgba(175, 75, 250, 0.4)"
+          img="https://i.pinimg.com/originals/64/a8/be/64a8be98eddab6cef644bdd4c8115e36.png"
+        >
           <div class="text">
             tonight we will be showing interstellla 5555 @ 8pm
           </div>
@@ -73,6 +76,12 @@ function App() {
       <VideoContainer>
         <video crossOrigin="true" autoPlay id="video" />
       </VideoContainer>
+      <Info
+        color="rgba(255,0,0,.8)"
+        img="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/13466317_573263599503757_871852264254909025_n.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_ohc=0Z-YE-AJXHQAX9L9Ski&_nc_ht=scontent-sjc3-1.xx&oh=caea1fc53420cd150d5754269dc1c043&oe=5EC97945"
+      >
+        <div class="text">tommorrow night @ 8pm ~ Raptor DJs</div>
+      </Info>
     </div>
   );
 }
