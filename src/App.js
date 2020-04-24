@@ -46,7 +46,7 @@ const VideoContainer = styled.div`
 
 function App() {
   useEffect(() => {
-    const source = "https://ice.raptor.pizza/hls/1.m3u8";
+    const source = "https://ice.raptor.pizza/hls/daftpunk.m3u8";
     const video = document.querySelector("#video");
     const player = new Plyr(video);
     player.on("ready", () => {
