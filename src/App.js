@@ -43,7 +43,7 @@ const VideoContainer = styled.div`
   width: 90%;
   max-width: 500px;
   display: block;
-  margin: auto;
+  /* margin: auto; */
 `;
 
 // const ChatBox = styled.div`
@@ -86,17 +86,23 @@ const VideoContainer = styled.div`
 
 function App() {
   useEffect(() => {
-    const source = "https://ice.raptor.pizza/hls/daftpunk.m3u8";
-    const video = document.querySelector("#video");
-    new Plyr(video);
+    // const source = "https://ice.raptor.pizza/hls/daftpunk.m3u8";
+    // const video = document.querySelector("#video");
+    // new Plyr(video);
 
-    if (!Hls.isSupported()) {
-      video.src = source;
-    } else {
-      const hls = new Hls();
-      hls.loadSource(source);
-      hls.attachMedia(video);
-    }
+    // if (!Hls.isSupported()) {
+    //   video.src = source;
+    // } else {
+    //   const hls = new Hls();
+    //   hls.loadSource(source);
+    //   hls.attachMedia(video);
+    // }
+
+    new window.Twitch.Embed("twitch-embed", {
+      width: 854,
+      height: 480,
+      channel: "clubcl3v3r",
+    });
   }, []);
 
   return (
@@ -111,7 +117,8 @@ function App() {
         <div className="text">t0night @ 8pm ~ Raptor DJs</div>
       </Info>
       <VideoContainer>
-        <video crossOrigin="true" autoPlay id="video" />
+        <div id="twitch-embed"></div>
+        {/* <video crossOrigin="true" autoPlay id="video" /> */}
       </VideoContainer>
 
       {/* <ChatBox>
