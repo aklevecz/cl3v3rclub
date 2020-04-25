@@ -43,7 +43,9 @@ const VideoContainer = styled.div`
   width: 90%;
   max-width: 500px;
   display: block;
-  /* margin: auto; */
+  @media screen and (min-width: 768px) {
+    margin: 10%;
+  }
 `;
 
 // const ChatBox = styled.div`
