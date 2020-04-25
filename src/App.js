@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Plyr from "plyr";
 import Hls from "hls.js";
+// import io from "socket.io-client";
 import "./App.css";
 
 const Header = styled.div`
@@ -10,6 +11,7 @@ const Header = styled.div`
   border: 2px solid black;
   padding: 10px;
   margin: 20px auto 7px;
+  user-select: none;
 `;
 
 const Info = styled.div`
@@ -44,6 +46,44 @@ const VideoContainer = styled.div`
   margin: auto;
 `;
 
+// const ChatBox = styled.div`
+//   border: 3px solid white;
+//   padding: 1rem;
+//   margin: 1 rem;
+//   min-height: 300px;
+// `;
+// const InputWrapper = styled.div`
+//   display: flex;
+//   justify-content: space-around;
+//   margin: 15px auto;
+//   max-width: 260px;
+// `;
+// const Input = styled.input`
+//   background: black;
+//   border: 2px solid white;
+//   color: white;
+//   text-align: center;
+// `;
+// const Button = styled.div`
+//   background: black;
+//   color: white;
+//   border: 3px solid white;
+//   padding: 0.5rem;
+//   cursor: pointer;
+// `;
+
+// export const socket = io(
+//   process.env.NODE_ENV !== "development"
+//     ? "https://radio.raptor.pizza"
+//     : "http://localhost:4444",
+//   {
+//     path: "/socket.io",
+//     transports: ["websocket"],
+//   }
+// );
+
+// socket.emit("club");
+
 function App() {
   useEffect(() => {
     const source = "https://ice.raptor.pizza/hls/daftpunk.m3u8";
@@ -57,31 +97,48 @@ function App() {
       hls.loadSource(source);
       hls.attachMedia(video);
     }
-  });
+  }, []);
+
   return (
     <div className="App">
       <div style={{ display: "flex" }}>
         <Header>CLUB CL3V3R</Header>
       </div>
-      <div>
-        <Info
-          color="rgba(175, 75, 250, 0.4)"
-          img="https://i.pinimg.com/originals/64/a8/be/64a8be98eddab6cef644bdd4c8115e36.png"
-        >
-          <div class="text">
-            tonight we will be showing interstellla 5555 @ 8pm
-          </div>
-        </Info>
-      </div>
-      <VideoContainer>
-        <video crossOrigin="true" autoPlay id="video" />
-      </VideoContainer>
       <Info
         color="rgba(255,0,0,.8)"
         img="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/13466317_573263599503757_871852264254909025_n.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_ohc=0Z-YE-AJXHQAX9L9Ski&_nc_ht=scontent-sjc3-1.xx&oh=caea1fc53420cd150d5754269dc1c043&oe=5EC97945"
       >
-        <div class="text">tommorrow night @ 8pm ~ Raptor DJs</div>
+        <div className="text">t0night @ 8pm ~ Raptor DJs</div>
       </Info>
+      <VideoContainer>
+        <video crossOrigin="true" autoPlay id="video" />
+      </VideoContainer>
+
+      {/* <ChatBox>
+        <div
+          ref={chatWrap}
+          style={{
+            height: "80%",
+            maxHeight: "300px",
+            overflow: "auto",
+            marginBottom: "5px",
+          }}
+        >
+          {messages.current.map((m, i) => (
+            <div key={m + i}>☺: {m}</div>
+          ))}
+        </div>
+        <InputWrapper>
+          <Input
+            onChange={(e) => setInputText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") sendIt();
+            }}
+            value={inputText}
+          />
+          <Button onClick={sendIt}>send it</Button>
+        </InputWrapper>
+      </ChatBox> */}
     </div>
   );
 }
