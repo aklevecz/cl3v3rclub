@@ -44,7 +44,7 @@ const VideoContainer = styled.div`
   max-width: 500px;
   display: block;
   @media screen and (min-width: 768px) {
-    margin: 10%;
+    margin: 10px;
   }
 `;
 
@@ -101,8 +101,8 @@ function App() {
     // }
 
     new window.Twitch.Embed("twitch-embed", {
-      width: 854,
-      height: 480,
+      width: window.innerWidth - 50,
+      height: 500,
       channel: "clubcl3v3r",
     });
   }, []);
@@ -116,7 +116,8 @@ function App() {
         color="rgba(255,0,0,.8)"
         img="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/13466317_573263599503757_871852264254909025_n.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_ohc=0Z-YE-AJXHQAX9L9Ski&_nc_ht=scontent-sjc3-1.xx&oh=caea1fc53420cd150d5754269dc1c043&oe=5EC97945"
       >
-        <div className="text">t0night @ 8pm ~ Raptor DJs</div>
+        <div className="text">Thank you everyone who showed up :)</div>
+        <div className="text">will likely open again on saturday</div>
       </Info>
       <VideoContainer>
         <div id="twitch-embed"></div>
