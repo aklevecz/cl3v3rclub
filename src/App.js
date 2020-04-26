@@ -101,7 +101,7 @@ function App() {
     // }
 
     new window.Twitch.Embed("twitch-embed", {
-      width: window.innerWidth - 50,
+      width: window.innerWidth - (window.innerWidth > 767 ? 50 : 0),
       height: 500,
       channel: "clubcl3v3r",
     });
