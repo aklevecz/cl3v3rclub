@@ -24,10 +24,38 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <style>
+      body {
+        background: #eaeaea;
+      }
+      canvas {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        max-width: 500px;
+        max-height: 500px;
+        z-index: -1;
+        left: 36.7%;
+        top: 19.5%;
+        margin-top: -250px;
+        margin-left: -250px;
+        border: 7px solid black;
+      }
+      @media screen and (max-width: 768px) {
+        canvas {
+          margin: 0px;
+          left: 0;
+          max-width: 96%;
+          max-height: 100%;
+          top: 20px;
+        }
+      }
+    </style>
     <title>clubcl3v3r</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <canvas id="c"></canvas>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -39,6 +67,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    <!-- <script src="https://embed.twitch.tv/embed/v1.js"></script> -->
   </body>
 </html>
