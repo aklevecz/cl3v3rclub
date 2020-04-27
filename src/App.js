@@ -259,10 +259,7 @@ function App() {
       <div style={{ display: "flex" }}>
         <Header>CLUB CL3V3R</Header>
       </div>
-      <Info
-        color="rgba(255,0,0,.8)"
-        img="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/13466317_573263599503757_871852264254909025_n.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_ohc=0Z-YE-AJXHQAX9L9Ski&_nc_ht=scontent-sjc3-1.xx&oh=caea1fc53420cd150d5754269dc1c043&oe=5EC97945"
-      >
+      <Info color="rgba(255,0,0,.8)">
         <div className="text">Thank you everyone who showed up :)</div>
         <div className="text">will likely open again on saturday</div>
       </Info>
