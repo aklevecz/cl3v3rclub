@@ -14,6 +14,9 @@ const Header = styled.div`
   margin: 20px auto 7px;
   user-select: none;
   background: white;
+  @media screen and (max-width: 768px) {
+    margin-top: 0px;
+  }
 `;
 
 const Info = styled.div`
@@ -32,7 +35,8 @@ const Info = styled.div`
     height: 100%;
     opacity: 0.9;
     z-index: -1;
-    background: ${(props) => `url(${props.img})`};
+    background: ${(props) => `url(${props.img})`}; 
+    background-size: 100% auto;
   }
   .text {
     color: white;
@@ -153,16 +157,16 @@ function App() {
   const [response, setResponse] = useState();
   useEffect(() => {
     // *** HLS ****
-    const source = "https://ice.raptor.pizza/hls/shrimp.m3u8";
-    const video = document.querySelector("#video");
-    new Plyr(video);
-    if (!Hls.isSupported()) {
-      video.src = source;
-    } else {
-      const hls = new Hls();
-      hls.loadSource(source);
-      hls.attachMedia(video);
-    }
+    // const source = "https://ice.raptor.pizza/hls/shrimp.m3u8";
+    // const video = document.querySelector("#video");
+    // new Plyr(video);
+    // if (!Hls.isSupported()) {
+    //   video.src = source;
+    // } else {
+    //   const hls = new Hls();
+    //   hls.loadSource(source);
+    //   hls.attachMedia(video);
+    // }
     // *** HLS ****
     // *** TWITCH ***
     // new window.Twitch.Embed("twitch-embed", {
@@ -259,9 +263,16 @@ function App() {
       <div style={{ display: "flex" }}>
         <Header>CLUB CL3V3R</Header>
       </div>
-      <Info color="rgba(255,0,0,.8)">
-        <div className="text">Thank you everyone who showed up :)</div>
-        <div className="text">will likely open again on saturday</div>
+      <Info
+        color="rgba(122, 96, 173, 0.5)"
+        img="https://m.media-amazon.com/images/M/MV5BNDcwODI3MTg0OV5BMl5BanBnXkFtZTcwMzk5Mjc4NA@@._V1_.jpg"
+      >
+        <div className="text">Friday night movie ~ Donnie Darko</div>
+        <div className="text">8pm ~ May 1st</div>
+      </Info>
+      <Info color="rgba(104,239,158, .7)">
+        <div className="text">Saturday Night ~ Raptor DJs</div>
+        <div className="text">8pm ~ May 2nd</div>
       </Info>
       <Info
         color="hsla(60, 100%, 52%, 0.6)"
@@ -293,10 +304,10 @@ function App() {
           SIGNUP
         </button>
       </Info>
-      <VideoContainer>
-        {/* <div id="twitch-embed"></div> */}
-        <video crossOrigin="true" autoPlay id="video" />
-      </VideoContainer>
+      {/* <VideoContainer> */}
+      {/* <div id="twitch-embed"></div> */}
+      {/* <video crossOrigin="true" autoPlay id="video" />
+      </VideoContainer> */}
 
       {/* <ChatBox>
         <div
