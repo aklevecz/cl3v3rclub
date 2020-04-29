@@ -153,16 +153,16 @@ function App() {
   const [response, setResponse] = useState();
   useEffect(() => {
     // *** HLS ****
-    // const source = "https://ice.raptor.pizza/hls/daftpunk.m3u8";
-    // const video = document.querySelector("#video");
-    // new Plyr(video);
-    // if (!Hls.isSupported()) {
-    //   video.src = source;
-    // } else {
-    //   const hls = new Hls();
-    //   hls.loadSource(source);
-    //   hls.attachMedia(video);
-    // }
+    const source = "https://ice.raptor.pizza/hls/shrimp.m3u8";
+    const video = document.querySelector("#video");
+    new Plyr(video);
+    if (!Hls.isSupported()) {
+      video.src = source;
+    } else {
+      const hls = new Hls();
+      hls.loadSource(source);
+      hls.attachMedia(video);
+    }
     // *** HLS ****
     // *** TWITCH ***
     // new window.Twitch.Embed("twitch-embed", {
@@ -293,10 +293,10 @@ function App() {
           SIGNUP
         </button>
       </Info>
-      {/* <VideoContainer>
-        <div id="twitch-embed"></div> */}
-      {/* <video crossOrigin="true" autoPlay id="video" /> */}
-      {/* </VideoContainer> */}
+      <VideoContainer>
+        {/* <div id="twitch-embed"></div> */}
+        <video crossOrigin="true" autoPlay id="video" />
+      </VideoContainer>
 
       {/* <ChatBox>
         <div
