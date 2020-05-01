@@ -268,11 +268,11 @@ function App() {
         img="https://m.media-amazon.com/images/M/MV5BNDcwODI3MTg0OV5BMl5BanBnXkFtZTcwMzk5Mjc4NA@@._V1_.jpg"
       >
         <div className="text">Friday night movie ~ Donnie Darko</div>
-        <div className="text">8pm ~ May 1st</div>
+        <div className="text">8pm PST ~ May 1st</div>
       </Info>
       <Info color="rgba(104,239,158, .7)">
         <div className="text">Saturday Night ~ Raptor DJs</div>
-        <div className="text">8pm ~ May 2nd</div>
+        <div className="text">8pm PST ~ May 2nd</div>
       </Info>
       <Info
         color="hsla(60, 100%, 52%, 0.6)"
