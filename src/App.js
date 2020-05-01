@@ -35,7 +35,7 @@ const Info = styled.div`
     height: 100%;
     opacity: 0.9;
     z-index: -1;
-    background: ${(props) => `url(${props.img})`}; 
+    background: ${(props) => `url(${props.img})`};
     background-size: 100% auto;
   }
   .text {
@@ -43,8 +43,16 @@ const Info = styled.div`
     padding: 11px;
     font-size: 42px;
   }
+  a {
+    display: block;
+    margin: auto;
+    font-size: 38px;
+    text-align: center;
+    color: #ff4747;
+    letter-spacing: 6px;
+  }
   span {
-    color:#ec4545;
+    color: #ec4545;
   }
   input {
     display: block;
@@ -65,7 +73,6 @@ const Info = styled.div`
     border: 3px solid black;
     user-select: none;
     cursor: pointer;
-}
   }
 `;
 
@@ -268,6 +275,7 @@ function App() {
         img="https://m.media-amazon.com/images/M/MV5BNDcwODI3MTg0OV5BMl5BanBnXkFtZTcwMzk5Mjc4NA@@._V1_.jpg"
       >
         <div className="text">Friday night movie ~ Donnie Darko</div>
+        <a href="https://theater.cl3v3r.club">HERE</a>
         <div className="text">8pm PST ~ May 1st</div>
       </Info>
       <Info color="rgba(104,239,158, .7)">
