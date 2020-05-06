@@ -5,7 +5,7 @@ import Plyr from "plyr";
 import Hls from "hls.js";
 // import io from "socket.io-client";
 import "./App.css";
-import meiosis from "./MEIOSIS-combinedd.jpg";
+import Meiosis from "./Meiosis";
 
 const Header = styled.div`
   font-size: 30px;
@@ -20,7 +20,7 @@ const Header = styled.div`
   }
 `;
 
-const Info = styled.div`
+export const Info = styled.div`
   border: 7px solid black;
   margin: 10px auto;
   width: 90%;
@@ -44,6 +44,7 @@ const Info = styled.div`
     color: white;
     padding: 11px;
     font-size: 42px;
+    user-select: none;
   }
   a {
     display: block;
@@ -280,9 +281,7 @@ function App() {
         <a href="https://theater.cl3v3r.club">HERE</a>
         <div className="text">8pm PST ~ May 1st</div>
       </Info> */}
-      <Info color="rgba(0,0,0, .7)" img={meiosis}>
-        <div className="text">MEIOSIS :)</div>
-      </Info>
+      <Meiosis />
       <Info
         color="hsla(60, 100%, 52%, 0.6)"
         img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGtIqcmRub84qvrom0ixt4QLb-VwB6iV8mSp9UMBd_X6_TLoXX&usqp=CAU"
