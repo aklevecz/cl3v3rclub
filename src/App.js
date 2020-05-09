@@ -5,8 +5,7 @@ import Plyr from "plyr";
 import Hls from "hls.js";
 // import io from "socket.io-client";
 import "./App.css";
-import Meiosis from "./Meiosis";
-
+import meiosis from "./MEIOSIS-combinedd.jpg";
 const Header = styled.div`
   font-size: 30px;
   display: flex;
@@ -273,15 +272,10 @@ function App() {
       <div style={{ display: "flex" }}>
         <Header>CLUB CL3V3R</Header>
       </div>
-      {/* <Info
-        color="rgba(122, 96, 173, 0.5)"
-        img="https://m.media-amazon.com/images/M/MV5BNDcwODI3MTg0OV5BMl5BanBnXkFtZTcwMzk5Mjc4NA@@._V1_.jpg"
-      >
-        <div className="text">Friday night movie ~ Donnie Darko</div>
-        <a href="https://theater.cl3v3r.club">HERE</a>
-        <div className="text">8pm PST ~ May 1st</div>
-      </Info> */}
-      <Meiosis />
+      <Info color="rgba(0,0,0, .7)" img={meiosis}>
+        <div className="text">MEIOSIS was a blast ~ thanks for coming out</div>
+        <div className="text">will try to get next weekend cooking</div>
+      </Info>
       <Info
         color="hsla(60, 100%, 52%, 0.6)"
         img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGtIqcmRub84qvrom0ixt4QLb-VwB6iV8mSp9UMBd_X6_TLoXX&usqp=CAU"
