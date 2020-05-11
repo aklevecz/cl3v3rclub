@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import * as THREE from "three";
+import EnterTheVoid from "./EnterTheVoid";
 import Plyr from "plyr";
 import Hls from "hls.js";
 // import io from "socket.io-client";
 import "./App.css";
 import meiosis from "./MEIOSIS-combinedd.jpg";
+import { CleverHeading } from "./CleverHeading";
 const Header = styled.div`
   font-size: 30px;
   display: flex;
@@ -184,60 +186,53 @@ function App() {
     //   channel: "clubcl3v3r",
     // });
     // *** TWITCH ***
-
-    function main() {
-      const canvas = document.querySelector("#c");
-      const renderer = new THREE.WebGLRenderer({ canvas });
-      renderer.autoClearColor = false;
-
-      const camera = new THREE.OrthographicCamera(
-        -1, // left
-        1, // right
-        1, // top
-        -1, // bottom
-        -1, // near,
-        1 // far
-      );
-      const scene = new THREE.Scene();
-      const plane = new THREE.PlaneBufferGeometry(2, 2);
-      const uniforms = {
-        iTime: { value: 0 },
-        iResolution: { value: new THREE.Vector3() },
-      };
-      const material = new THREE.ShaderMaterial({
-        fragmentShader,
-        uniforms,
-      });
-      scene.add(new THREE.Mesh(plane, material));
-
-      function resizeRendererToDisplaySize(renderer) {
-        const canvas = renderer.domElement;
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
-        const needResize = canvas.width !== width || canvas.height !== height;
-        if (needResize) {
-          renderer.setSize(width, height, false);
-        }
-        return needResize;
-      }
-
-      function render(time) {
-        time *= 0.001; // convert to seconds
-
-        resizeRendererToDisplaySize(renderer);
-
-        const canvas = renderer.domElement;
-        uniforms.iResolution.value.set(canvas.width, canvas.height, 1);
-        uniforms.iTime.value = time;
-
-        renderer.render(scene, camera);
-
-        requestAnimationFrame(render);
-      }
-      requestAnimationFrame(render);
-    }
-
-    main();
+    // THREE JS
+    // function main() {
+    //   const canvas = document.querySelector("#c");
+    //   const renderer = new THREE.WebGLRenderer({ canvas });
+    //   renderer.autoClearColor = false;
+    //   const camera = new THREE.OrthographicCamera(
+    //     -1, // left
+    //     1, // right
+    //     1, // top
+    //     -1, // bottom
+    //     -1, // near,
+    //     1 // far
+    //   );
+    //   const scene = new THREE.Scene();
+    //   const plane = new THREE.PlaneBufferGeometry(2, 2);
+    //   const uniforms = {
+    //     iTime: { value: 0 },
+    //     iResolution: { value: new THREE.Vector3() },
+    //   };
+    //   const material = new THREE.ShaderMaterial({
+    //     fragmentShader,
+    //     uniforms,
+    //   });
+    //   scene.add(new THREE.Mesh(plane, material));
+    //   function resizeRendererToDisplaySize(renderer) {
+    //     const canvas = renderer.domElement;
+    //     const width = canvas.clientWidth;
+    //     const height = canvas.clientHeight;
+    //     const needResize = canvas.width !== width || canvas.height !== height;
+    //     if (needResize) {
+    //       renderer.setSize(width, height, false);
+    //     }
+    //     return needResize;
+    //   }
+    //   function render(time) {
+    //     time *= 0.001; // convert to seconds
+    //     resizeRendererToDisplaySize(renderer);
+    //     const canvas = renderer.domElement;
+    //     uniforms.iResolution.value.set(canvas.width, canvas.height, 1);
+    //     uniforms.iTime.value = time;
+    //     renderer.render(scene, camera);
+    //     requestAnimationFrame(render);
+    //   }
+    //   requestAnimationFrame(render);
+    // }
+    // main();
+    // THREE JS
   }, []);
 
   const submit = () => {
@@ -269,9 +264,11 @@ function App() {
   };
   return (
     <div className="App">
-      <div style={{ display: "flex" }}>
-        <Header>CLUB CL3V3R</Header>
+      <div style={{ display: "block" }}>
+        {/* <Header>CLUB CL3V3R</Header> */}
+        <CleverHeading />
       </div>
+      <EnterTheVoid />
       <Info color="rgba(0,0,0, .7)" img={meiosis}>
         <div className="text">MEIOSIS was a blast ~ thanks for coming out</div>
         <div className="text">will try to get next weekend cooking</div>
