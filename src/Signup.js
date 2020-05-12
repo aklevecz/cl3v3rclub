@@ -6,6 +6,14 @@ const SignupWrapper = styled.div`
   max-width: 400px;
   margin: auto;
   position: relative;
+  #input-wrapper {
+    position: absolute;
+    height: 20px;
+    top: 338px;
+    left: 16%;
+    width: 195px;
+    opacity: 0.5;
+  }
   input {
     font-family: "Comic Neue", cursive;
     position: absolute;
@@ -16,6 +24,7 @@ const SignupWrapper = styled.div`
     background: none;
     border: none;
     outline-width: 0;
+    pointer-events: all;
   }
   #signup-response {
     color: red;
@@ -62,8 +71,15 @@ const Signup = () => {
   };
 
   return (
-    <SignupWrapper>
+    <SignupWrapper onClick={() => console.log("Hi")}>
       <SignupBox />
+      <div
+        id="input-wrapper"
+        onClick={() => {
+          document.querySelector("input").focus();
+        }}
+        style={{ background: "red" }}
+      />
       <input
         type="email"
         onChange={(e) => setEmail(e.target.value)}
