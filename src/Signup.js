@@ -9,15 +9,15 @@ const SignupWrapper = styled.div`
   #input-wrapper {
     position: absolute;
     height: 20px;
-    top: 338px;
+    top: 84%;
     left: 16%;
     width: 195px;
-    opacity: 0.5;
+    opacity: 0;
   }
   input {
     font-family: "Comic Neue", cursive;
     position: absolute;
-    top: 338px;
+    top: 84%;
     left: 16%;
     width: 195px;
     color: white;
