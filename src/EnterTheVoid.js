@@ -3,10 +3,12 @@ import { VoidBanner } from "./VoidBanner";
 import styled from "styled-components";
 
 const VoidWrapper = styled.div`
+  max-width: 460px;
+  margin: auto;
   svg {
-    display: block;
-    margin: auto;
-    max-width: 860px;
+    /* display: block;
+    margin: auto; */
+    /* max-width: 860px; */
   }
 `;
 const EnterTheVoid = () => {
