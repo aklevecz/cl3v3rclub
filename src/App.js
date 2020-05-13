@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EnterTheVoid from "./EnterTheVoid";
 import "./App.css";
 import { CleverHeading } from "./CleverHeading";
 import Signup from "./Signup";
+import { Background } from "./Background";
+import styled from "styled-components";
+
+const BackgroundWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -99;
+`;
 
 function App() {
+  const [orientation, setOrientation] = useState(
+    window.innerWidth > window.innerHeight ? "landscape" : "portrait"
+  );
+  const resize = () =>
+    setOrientation(
+      window.innerWidth > window.innerHeight ? "landscape" : "portrait"
+    );
+  useEffect(() => {
+    window.addEventListener("resize", resize, false);
+
+    return () => window.removeEventListener(resize, false);
+  }, []);
   return (
     <div className="App">
       <div style={{ display: "block" }}>
@@ -18,6 +40,11 @@ function App() {
       {/* <div id="twitch-embed"></div> */}
       {/* <video crossOrigin="true" autoPlay id="video" />
       </VideoContainer> */}
+      {orientation === "landscape" && (
+        <BackgroundWrapper>
+          <Background />
+        </BackgroundWrapper>
+      )}
     </div>
   );
 }
