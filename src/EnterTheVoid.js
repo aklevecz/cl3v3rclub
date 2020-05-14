@@ -5,10 +5,24 @@ import styled from "styled-components";
 const VoidWrapper = styled.div`
   max-width: 460px;
   margin: auto;
-  svg {
-    /* display: block;
-    margin: auto; */
-    /* max-width: 860px; */
+  position: relative;
+  .enter {
+    position: absolute;
+    color: white;
+    font-family: Comic Neue;
+    left: 50%;
+    top: 70%;
+    border: 2px dotted white;
+    padding: 7px;
+    border-radius: 30%;
+    user-select: none;
+    cursor: pointer;
+    transition: color 1s, font-weight 1s;
+
+    &:hover {
+      color: red;
+      font-weight: bold;
+    }
   }
 `;
 const EnterTheVoid = () => {
@@ -35,9 +49,24 @@ const EnterTheVoid = () => {
     animate();
     return () => cancelAnimationFrame(frame);
   });
+  const d = new Date();
+  const date = d.getUTCDate();
+  const hour = d.getUTCHours();
+  let open = false;
+  if (date === 15 && hour > 1) {
+    open = true;
+  }
   return (
     <VoidWrapper>
       <VoidBanner name={"void"} />
+      {open && (
+        <div
+          className="enter"
+          onClick={() => (window.location.href = "https://theater.cl3v3r.club")}
+        >
+          ENTER
+        </div>
+      )}
     </VoidWrapper>
   );
 };
