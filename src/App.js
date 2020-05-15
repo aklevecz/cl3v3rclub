@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import EnterTheVoid from "./EnterTheVoid";
-import "./App.css";
+import { Background } from "./Background";
 import { CleverHeading } from "./CleverHeading";
 import Signup from "./Signup";
-import { Background } from "./Background";
+import SomeParty from "./SomeParty";
 import styled from "styled-components";
+import "./App.css";
 
 const BackgroundWrapper = styled.div`
   position: absolute;
@@ -33,9 +33,8 @@ function App() {
         {/* <Header>CLUB CL3V3R</Header> */}
         <CleverHeading />
       </div>
-      <EnterTheVoid />
+      <SomeParty />
       <Signup />
-
       {/* <VideoContainer> */}
       {/* <div id="twitch-embed"></div> */}
       {/* <video crossOrigin="true" autoPlay id="video" />
