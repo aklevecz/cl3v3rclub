@@ -8485,7 +8485,7 @@ export function SomePartyBox2() {
                 <g>
                   <g>
                     <rect
-                      style="cursor:pointer;"
+                      style={{ cursor: "pointer" }}
                       id="click-door"
                       fill="red"
                       x="440"
