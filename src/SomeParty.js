@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { SomePartyBox } from "./SomePartyBox";
+import { SomePartyBox2 } from "./SomePartyBox2";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -24,6 +24,11 @@ const items = [
 
 const SomeParty = () => {
   useEffect(() => {
+    const clickDoor = document
+      .getElementById("click-door")
+      .addEventListener("click", () => {
+        window.location.href = "https://theater.cl3v3r.club";
+      });
     const randomPeck = () => Math.floor(Math.random() * items.length);
     let pecker = [randomPeck()];
     let peckIndex = 0;
@@ -69,7 +74,7 @@ const SomeParty = () => {
 
   return (
     <Wrapper>
-      <SomePartyBox />
+      <SomePartyBox2 />
     </Wrapper>
   );
 };
