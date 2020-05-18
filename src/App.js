@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Background } from "./Background";
 import { CleverHeading } from "./CleverHeading";
+import Venue from "./Venue";
 import Signup from "./Signup";
-import SomeParty from "./SomeParty";
 import styled from "styled-components";
 import "./App.css";
 
@@ -33,7 +33,7 @@ function App() {
         {/* <Header>CLUB CL3V3R</Header> */}
         <CleverHeading />
       </div>
-      <SomeParty />
+      <Venue />
       <Signup />
       {/* <VideoContainer> */}
       {/* <div id="twitch-embed"></div> */}
