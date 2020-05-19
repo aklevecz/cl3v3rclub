@@ -33,7 +33,7 @@ function App() {
         {/* <Header>CLUB CL3V3R</Header> */}
         <CleverHeading />
       </div>
-      <Venue />
+      <Venue orientation={orientation} />
       <Signup />
       {/* <VideoContainer> */}
       {/* <div id="twitch-embed"></div> */}

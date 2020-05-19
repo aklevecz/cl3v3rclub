@@ -1,6 +1,6 @@
 import React from "react";
 
-export function VenueBox() {
+export function VenueBox({ zoomToDoor }) {
   return (
     <svg x="0px" y="0px" viewBox="0 0 1080 1080">
       <g id="CLOSED">
@@ -8,6 +8,13 @@ export function VenueBox() {
           <polygon
             fill="#231F20"
             points="145.82,259.82 154.82,962.82 865.82,964.82 953.82,777.82 950.82,44.82 356.82,73.82 		"
+          />
+          <polygon
+            style={{ cursor: "pointer" }}
+            id="closed-door-click"
+            onClick={zoomToDoor}
+            fill="#231F20"
+            points="343.32,951.32 323.32,782.32 434.32,772.32 427.32,949.32 		"
           />
         </g>
         <g id="CLOSED_x5F_OUTLINE">

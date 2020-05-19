@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { VenueBox } from "./VenueBox";
-
+import { DoorZoomBox } from "./DoorZoomBox";
+import styled from "styled-components";
 // const ids = [
 //   "PATCH",
 //   "CLOSED_x5F_OUTLINE",
@@ -18,10 +19,30 @@ import { VenueBox } from "./VenueBox";
 //   "CLOSED_x5F_ROOF",
 // ];
 
-const Venue = () => {
+const ZoomContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rosybrown;
+`;
+
+const ZoomWrapper = styled.div`
+  width: 100%;
+  top: ${(props) => (props.orientation === "portrait" ? "149px" : "0px")};
+  position: relative;
+`;
+
+const Venue = ({ orientation }) => {
+  const [scene, setScene] = useState("normal");
   useEffect(() => {
     const heart = document.getElementById("CLOSED_x5F_HEART");
     const closedSign = document.getElementById("CLOSED_x5F_CLOSED");
+    const eyes = document.getElementById("DOORCLOSED_x5F_EYES");
+    const blink = document.getElementById("blink");
+
     var frameCount = 0;
     var frame, fpsInterval, now, then, elapsed;
     startAnimating(5);
@@ -39,18 +60,41 @@ const Venue = () => {
 
       if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
-        const wave =
-          (255 * Math.sin(frameCount * Math.PI * 2 * 0.1) + 255) * 0.5;
-        heart.setAttribute("stroke", frameCount % 9 ? "red" : "white");
-        closedSign.setAttribute("stroke", `rgb(255,${wave},${wave} )`);
+
+        if (scene === "normal") {
+          const wave =
+            (255 * Math.sin(frameCount * Math.PI * 2 * 0.1) + 255) * 0.5;
+          heart.setAttribute("stroke", frameCount % 9 ? "red" : "white");
+          closedSign.setAttribute("stroke", `rgb(255,${wave},${wave} )`);
+        }
+
+        if (scene === "zoomed") {
+          if (frameCount % 21) {
+            eyes.setAttribute("opacity", 1);
+            blink.setAttribute("opacity", 0);
+          } else if (frameCount % 19) {
+            eyes.setAttribute("opacity", 0);
+            blink.setAttribute("opacity", 1);
+          }
+        }
         frameCount++;
       }
     }
     return () => cancelAnimationFrame(frame);
-  }, []);
+  }, [scene]);
+
+  const zoomToDoor = () => setScene("zoomed");
+  const eyeClick = () => alert("....");
   return (
     <div>
-      <VenueBox />
+      {scene === "normal" && <VenueBox zoomToDoor={zoomToDoor} />}
+      {scene === "zoomed" && (
+        <ZoomContainer>
+          <ZoomWrapper orientation={orientation}>
+            <DoorZoomBox eyeClick={eyeClick} />
+          </ZoomWrapper>
+        </ZoomContainer>
+      )}
     </div>
   );
 };
