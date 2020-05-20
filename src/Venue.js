@@ -84,7 +84,31 @@ const Venue = ({ orientation }) => {
   }, [scene]);
 
   const zoomToDoor = () => setScene("zoomed");
-  const eyeClick = () => alert("....");
+  const eyeClick = () => {
+    let counter = 0;
+    const what = document.getElementById("chat");
+
+    animator((frame, frameCount) => {
+      const wave = 0.5 * (1 + Math.sin(counter * Math.PI * 2 * 0.1) * 2.5);
+      counter++;
+      console.log(wave);
+      what.setAttribute("opacity", wave);
+      if (wave > 1.6) {
+        cancelAnimationFrame(frame);
+        counter = 0;
+        animator((frame) => {
+          const wave = 0.5 * (1 + Math.cos(counter * Math.PI * 2 * 0.1) * 1.5);
+          counter++;
+          console.log(wave);
+          what.setAttribute("opacity", wave);
+          if (wave <= 0) {
+            cancelAnimationFrame(frame);
+          }
+        });
+      }
+    });
+  };
+
   return (
     <div>
       {scene === "normal" && <VenueBox zoomToDoor={zoomToDoor} />}
@@ -99,3 +123,28 @@ const Venue = ({ orientation }) => {
   );
 };
 export default Venue;
+
+function animator(cb) {
+  var frameCount = 0;
+  var frame, fpsInterval, now, then, elapsed;
+  startAnimating(5);
+  function startAnimating(fps) {
+    fpsInterval = 1000 / fps;
+    then = Date.now();
+    animate();
+  }
+
+  function animate() {
+    frame = requestAnimationFrame(animate);
+
+    now = Date.now();
+    elapsed = now - then;
+
+    if (elapsed > fpsInterval) {
+      then = now - (elapsed % fpsInterval);
+      cb(frame, frameCount);
+
+      frameCount++;
+    }
+  }
+}
