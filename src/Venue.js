@@ -37,11 +37,19 @@ const ZoomWrapper = styled.div`
 
 const Venue = ({ orientation }) => {
   const [scene, setScene] = useState("normal");
+  const [openState, setOpenState] = useState(false);
   useEffect(() => {
+    // const date = new Date();
+    // if (date.getUTCHours() > 2) {
+    //   setOpenState(true);
+    // }
     const heart = document.getElementById("CLOSED_x5F_HEART");
     const closedSign = document.getElementById("CLOSED_x5F_CLOSED");
     const eyes = document.getElementById("DOORCLOSED_x5F_EYES");
     const blink = document.getElementById("blink");
+    const open = document.querySelector("#OPEN");
+    const eyeSlit = document.querySelector("#DOORCLOSED_x5F_EYESLIT");
+    const door = document.querySelector("#DOORCLOSED_x5F_DOOR");
 
     var frameCount = 0;
     var frame, fpsInterval, now, then, elapsed;
@@ -64,11 +72,11 @@ const Venue = ({ orientation }) => {
         if (scene === "normal") {
           const wave =
             (255 * Math.sin(frameCount * Math.PI * 2 * 0.1) + 255) * 0.5;
-          heart.setAttribute("stroke", frameCount % 9 ? "red" : "white");
-          closedSign.setAttribute("stroke", `rgb(255,${wave},${wave} )`);
+          heart.setAttribute("stroke", frameCount % 9 ? "lime" : "white");
+          // closedSign.setAttribute("stroke", `rgb(${wave},255,${wave} )`);
         }
 
-        if (scene === "zoomed") {
+        if (scene === "zoomed" && !openState) {
           if (frameCount % 21) {
             eyes.setAttribute("opacity", 1);
             blink.setAttribute("opacity", 0);
@@ -77,8 +85,23 @@ const Venue = ({ orientation }) => {
             blink.setAttribute("opacity", 1);
           }
         }
+        if (openState && scene === "zoomed") {
+          open.setAttribute("stroke", frameCount % 9 ? "lime" : "white");
+        }
         frameCount++;
       }
+    }
+
+    if (openState && scene === "zoomed") {
+      document.querySelector("#DOORCLOSED_x5F_SIGN").style.opacity = 0;
+      eyeSlit.setAttribute("opacity", 0);
+      eyes.setAttribute("opacity", 0);
+      door.addEventListener(
+        "click",
+        () => (window.location.href = "https://okra.cl3v3r.club")
+      );
+    } else {
+      if (open) open.style.opacity = 0;
     }
     return () => cancelAnimationFrame(frame);
   }, [scene]);
@@ -114,7 +137,12 @@ const Venue = ({ orientation }) => {
       {scene === "normal" && <VenueBox zoomToDoor={zoomToDoor} />}
       {scene === "zoomed" && (
         <ZoomContainer>
-          <ZoomWrapper orientation={orientation}>
+          <ZoomWrapper
+            orientation={orientation}
+            onClick={() => {
+              if (openState) window.location.href = "https://okra.cl3v3r.club";
+            }}
+          >
             <DoorZoomBox eyeClick={eyeClick} />
           </ZoomWrapper>
         </ZoomContainer>
